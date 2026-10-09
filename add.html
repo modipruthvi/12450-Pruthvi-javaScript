@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <title>Add Product | ShopZone</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7fc;
+            font-family: Arial, sans-serif;
+            color: #172554;
+        }
+
+        /* NAVBAR */
+
+        .custom-navbar {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 3px 18px rgba(20, 40, 90, 0.07);
+        }
+
+        .navbar-brand {
+            font-size: 25px;
+            font-weight: 800;
+            color: #2563eb !important;
+            letter-spacing: -1px;
+        }
+
+        .navbar-brand i {
+            margin-right: 7px;
+        }
+
+        .nav-link {
+            color: #475569;
+            font-weight: 600;
+            margin: 0 8px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #2563eb !important;
+        }
+
+        .dropdown-menu {
+            border: none;
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-item {
+            padding: 10px 14px;
+            border-radius: 7px;
+        }
+
+        .dropdown-item:hover {
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        .search-box {
+            border-radius: 25px;
+            padding: 10px 16px;
+            background: #f5f7fc;
+            border: 1px solid #e2e8f0;
+            min-width: 190px;
+        }
+
+        .search-btn {
+            border-radius: 25px;
+            padding: 9px 19px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            font-weight: 600;
+        }
+
+        .search-btn:hover {
+            background: #1d4ed8;
+            color: white;
+        }
+
+        /* PAGE HEADER */
+
+        .page-header {
+            margin-top: 30px;
+            padding: 25px 30px;
+            background: linear-gradient(120deg, #dbeafe, #eef2ff, #f5eaff);
+            border-radius: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .breadcrumb-text {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb-text a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .page-header h1 {
+            font-size: 30px;
+            font-weight: 800;
+            margin: 0 0 8px;
+        }
+
+        .page-header p {
+            margin: 0;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .header-icon {
+            width: 75px;
+            height: 75px;
+            border-radius: 20px;
+            background: white;
+            color: #2563eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.08);
+        }
+
+        /* MAIN LAYOUT */
+
+        .form-layout {
+            display: flex;
+            gap: 24px;
+            align-items: stretch;
+            margin-top: 25px;
+            margin-bottom: 45px;
+        }
+
+        /* FORM CARD */
+
+        .product-form-card {
+            flex: 1;
+            min-width: 0;
+            background: white;
+            border: 1px solid #edf0f7;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 5px 25px rgba(30, 50, 90, 0.045);
+        }
+
+        .form-heading {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding-bottom: 22px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #edf0f7;
+        }
+
+        .form-heading-icon {
+            width: 48px;
+            height: 48px;
+            background: #e8efff;
+            color: #2563eb;
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+        }
+
+        .form-heading h3 {
+            font-size: 21px;
+            font-weight: 800;
+            margin: 0 0 5px;
+        }
+
+        .form-heading p {
+            color: #94a3b8;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .form-label {
+            color: #334155;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 9px;
+        }
+
+        .form-control {
+            min-height: 47px;
+            border: 1px solid #dfe5ef;
+            border-radius: 10px;
+            padding: 12px 14px;
+            font-size: 14px;
+            background-color: #fbfcff;
+            transition: 0.2s;
+        }
+
+        .form-control:focus {
+            background: white;
+            border-color: #6395ff;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.09);
+        }
+
+        .form-control::placeholder {
+            color: #a5afbf;
+        }
+
+        .field-icon {
+            color: #2563eb;
+            margin-right: 5px;
+        }
+
+        .submit-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 13px 23px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .submit-btn:hover {
+            background: #1d4ed8;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .reset-note {
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        /* SIDE INFORMATION */
+
+        .side-panel {
+            width: 290px;
+            min-width: 260px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .side-card {
+            background: white;
+            border: 1px solid #edf0f7;
+            border-radius: 16px;
+            padding: 23px;
+            box-shadow: 0 5px 20px rgba(30, 50, 90, 0.035);
+        }
+
+        .side-card h5 {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 19px;
+        }
+
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            background: #e8efff;
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .step-item h6 {
+            font-size: 13px;
+            font-weight: 700;
+            margin: 2px 0 5px;
+        }
+
+        .step-item p {
+            font-size: 12px;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .tip-card {
+            background: linear-gradient(145deg, #2563eb, #4f46e5);
+            color: white;
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .tip-card i {
+            font-size: 27px;
+            margin-bottom: 14px;
+            display: inline-block;
+        }
+
+        .tip-card h5 {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .tip-card p {
+            color: #e0e7ff;
+            font-size: 12px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            background: #172554;
+            color: white;
+            padding: 23px 0;
+        }
+
+        .footer-brand {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 991px) {
+            .form-layout {
+                flex-direction: column;
+            }
+
+            .side-panel {
+                width: 100%;
+                min-width: 0;
+                flex-direction: row;
+                align-items: stretch;
+            }
+
+            .side-panel > * {
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .page-header {
+                padding: 22px;
+            }
+
+            .page-header h1 {
+                font-size: 25px;
+            }
+
+            .header-icon {
+                width: 55px;
+                height: 55px;
+                min-width: 55px;
+                font-size: 27px;
+            }
+
+            .product-form-card {
+                padding: 22px 18px;
+            }
+
+            .side-panel {
+                flex-direction: column;
+            }
+
+            .search-form {
+                padding-top: 12px;
+            }
+
+            .search-box {
+                min-width: 0;
+                width: 100%;
+            }
+
+            .submit-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .header-icon {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-bag-check-fill"></i>Shop<span class="text-dark">Zone</span>
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav me-auto ms-lg-4 mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house-door me-1"></i>Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle active" href="#"
+                            role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Products
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                <a class="dropdown-item active" href="add.html">
+                                    <i class="bi bi-plus-circle me-2"></i>Add Product
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="view.html">
+                                    <i class="bi bi-box-seam me-2"></i>View Product
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                <form class="d-flex search-form" role="search">
+                    <input class="form-control search-box me-2"
+                        type="search"
+                        placeholder="Search products..."
+                        aria-label="Search">
+
+                    <button class="btn search-btn" type="submit">
+                        <i class="bi bi-search me-1"></i>Search
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <main class="container">
+
+        <!-- PAGE HEADER -->
+        <section class="page-header">
+
+            <div>
+                <div class="breadcrumb-text">
+                    <a href="index.html">Home</a>
+                    <i class="bi bi-chevron-right mx-2"></i>
+                    Products
+                    <i class="bi bi-chevron-right mx-2"></i>
+                    Add Product
+                </div>
+
+                <h1>Add New Product</h1>
+
+                <p>Fill in the details below to add a product to your store.</p>
+            </div>
+
+            <div class="header-icon">
+                <i class="bi bi-bag-plus"></i>
+            </div>
+
+        </section>
+
+        <!-- FORM AND SIDE PANEL -->
+        <section class="form-layout">
+
+            <!-- PRODUCT FORM -->
+            <div class="product-form-card">
+
+                <div class="form-heading">
+
+                    <div class="form-heading-icon">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+
+                    <div>
+                        <h3>Product Information</h3>
+                        <p>Enter your product information carefully.</p>
+                    </div>
+
+                </div>
+
+                <!-- KEEP FORM ID SAME -->
+                <form id="productForm">
+
+                    <div class="mb-4">
+
+                        <label for="title" class="form-label">
+                            <i class="bi bi-type field-icon"></i>
+                            Product Title
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="title"
+                            name="title"
+                            placeholder="e.g. Wireless Headphones"
+                        >
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-4">
+
+                            <label for="price" class="form-label">
+                                <i class="bi bi-currency-rupee field-icon"></i>
+                                Price
+                            </label>
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="price"
+                                name="price"
+                                placeholder="Enter product price"
+                            >
+
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+
+                            <label for="qty" class="form-label">
+                                <i class="bi bi-boxes field-icon"></i>
+                                Quantity
+                            </label>
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="qty"
+                                name="qty"
+                                placeholder="Enter quantity"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label for="img" class="form-label">
+                            <i class="bi bi-image field-icon"></i>
+                            Product Image URL
+                        </label>
+
+                        <input
+                            type="url"
+                            class="form-control"
+                            id="img"
+                            name="img"
+                            placeholder="https://example.com/product.jpg"
+                        >
+
+                        <div class="form-text mt-2">
+                            <i class="bi bi-info-circle me-1"></i>
+                            Paste a direct image URL for your product.
+                        </div>
+
+                    </div>
+
+                    <hr class="mb-4" style="border-color:#edf0f7;">
+
+                    <div class="d-flex flex-wrap justify-content-between
+                        align-items-center gap-3">
+
+                        <span class="reset-note">
+                            <i class="bi bi-shield-check me-1"></i>
+                            Check your details before submitting.
+                        </span>
+
+                        <button type="submit" class="btn submit-btn">
+                            <i class="bi bi-plus-circle me-2"></i>
+                            Add Product
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- SIDE INFORMATION -->
+            <aside class="side-panel">
+
+                <div class="side-card">
+
+                    <h5>
+                        <i class="bi bi-list-check text-primary me-2"></i>
+                        How It Works
+                    </h5>
+
+                    <div class="step-item">
+
+                        <div class="step-number">1</div>
+
+                        <div>
+                            <h6>Enter Product Name</h6>
+                            <p>Give your product a clear and easy-to-understand title.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="step-item">
+
+                        <div class="step-number">2</div>
+
+                        <div>
+                            <h6>Set Price & Quantity</h6>
+                            <p>Enter the correct price and available stock.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="step-item">
+
+                        <div class="step-number">3</div>
+
+                        <div>
+                            <h6>Add Product Image</h6>
+                            <p>Use a working image URL to display your product.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tip-card">
+
+                    <i class="bi bi-lightbulb"></i>
+
+                    <h5>Pro Tip</h5>
+
+                    <p>
+                        Use a good-quality product image and a clear title
+                        to make your product look attractive in your store.
+                    </p>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container d-flex flex-wrap justify-content-between
+            align-items-center gap-2">
+
+            <div class="footer-brand">
+                <i class="bi bi-bag-check-fill me-2"></i>ShopZone
+            </div>
+
+            <p>Discover more. Shop smarter. © 2026 ShopZone.</p>
+
+        </div>
+
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- YOUR EXISTING JAVASCRIPT -->
+    <script src="./js/add.js"></script>
+
+</body>
+</html>
