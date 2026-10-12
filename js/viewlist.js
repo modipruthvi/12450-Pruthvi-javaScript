@@ -19,7 +19,10 @@ function displayProduct() {
                     >
                 </td>
                 <td>
-                    <button class="btn btn-warning btn-sm">
+                    <button 
+                    class="btn btn-warning" 
+                    onclick="editProduct(${product.id})"
+                    >
                         Edit
                     </button>
                     <button
@@ -42,5 +45,33 @@ function deleteProduct(id) {
         JSON.stringify(list)
     );
     displayProduct();
+}
+
+
+function editProduct(id) {
+    let product = list.find((p) => p.id == id);
+
+    let title = prompt("Enter Title", product.title);
+    if (title == null) return;
+
+    let price = prompt("Enter Price", product.price);
+    if (price == null) return;
+
+    let qty = prompt("Enter Quantity", product.qty);
+    if (qty == null) return;
+
+    let img = prompt("Enter Image URL", product.img);
+    if (img == null) return;
+
+    product.title = title;
+    product.price = price;
+    product.qty = qty;
+    product.img = img;
+
+    localStorage.setItem("list", JSON.stringify(list));
+
+    displayProduct();
+
+    alert("Product Updated!");
 }
 displayProduct();

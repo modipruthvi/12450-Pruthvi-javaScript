@@ -1,0 +1,136 @@
+
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <title>All Products | ShopZone</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+        .page-heading {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        #productList .card {
+            height: 100%;
+            border: 1px solid #ddd;
+        }
+
+        #productList img {
+            height: 200px;
+            width: 100%;
+            object-fit: contain;
+            padding: 10px;
+            background: white;
+        }
+
+        .footer {
+            background: #212529;
+            color: white;
+            padding: 15px 0;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand" href="#">Shope C@rt</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./allproduct.html">All Product</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="addproduct.html">AddProduct</a></li>
+            <li><a class="dropdown-item" href="viewlist.html">ViweProduct</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search"id="searchInput" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+    <main class="container">
+
+        <div class="page-heading">
+            <h2>All Products</h2>
+            <p class="text-secondary mb-0">
+                Explore all products available in our store.
+            </p>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center
+                    flex-wrap gap-3 mb-3">
+
+            <h4 class="mb-0">Our Products</h4>
+
+            <select class="form-select w-auto" id="sortProducts">
+                <option value="default">Default</option>
+                <option value="priceLow">Price: Low to High</option>
+                <option value="priceHigh">Price: High to Low</option>
+                <option value="nameAZ">Name: A to Z</option>
+                <option value="nameZA">Name: Z to A</option>
+            </select>
+
+        </div>
+        <p class="text-secondary" id="productCount"></p>
+
+        <div class="row" id="productList"></div>
+
+        <div class="text-center py-5 d-none" id="noProducts">
+            <i class="bi bi-box-seam fs-1 text-secondary"></i>
+            <h5 class="mt-2">No products found</h5>
+            <p class="text-secondary">
+                Try searching for another product.
+            </p>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container d-flex justify-content-between
+                    flex-wrap gap-2">
+            <strong>
+                <i class="bi bi-bag-check-fill"></i> ShopC@rt
+            </strong>
+
+            <span>© 2026 ShopC@rt. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./js/allproduct.js"></script>
+
+</body>
+</html>

@@ -1,563 +1,197 @@
 <!doctype html>
 <html lang="en" data-bs-theme="light">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-    <title>Product Store</title>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-        rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
+        <!-- Bootstrap CSS v5.3.8 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"
+        />
+    </head>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            background: #f5f7fc;
-            font-family: Arial, sans-serif;
-            color: #172554;
-        }
-
-        /* NAVBAR */
-
-        .custom-navbar {
-            background: white;
+     .footer {
+            background: #212529;
+            color: white;
             padding: 15px 0;
-            box-shadow: 0 3px 18px rgba(20, 40, 90, 0.07);
-        }
-
-        .navbar-brand {
-            font-size: 25px;
-            font-weight: 800;
-            color: #2563eb !important;
-            letter-spacing: -1px;
-        }
-
-        .navbar-brand i {
-            margin-right: 7px;
-        }
-
-        .nav-link {
-            color: #475569;
-            font-weight: 600;
-            margin: 0 8px;
-            transition: 0.3s;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: #2563eb !important;
-        }
-
-        .dropdown-menu {
-            border: none;
-            border-radius: 12px;
-            padding: 10px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .dropdown-item {
-            padding: 10px 14px;
-            border-radius: 7px;
-        }
-
-        .dropdown-item:hover {
-            background: #eff6ff;
-            color: #2563eb;
-        }
-
-        .search-box {
-            border-radius: 25px;
-            padding: 10px 16px;
-            background: #f5f7fc;
-            border: 1px solid #e2e8f0;
-            min-width: 190px;
-        }
-
-        .search-btn {
-            border-radius: 25px;
-            padding: 9px 19px;
-            background: #2563eb;
-            color: white;
-            border: none;
-            font-weight: 600;
-        }
-
-        .search-btn:hover {
-            background: #1d4ed8;
-            color: white;
-        }
-
-        /* HERO SECTION */
-
-        .hero-section {
-            margin-top: 28px;
-            padding: 38px 42px;
-            border-radius: 22px;
-            background: linear-gradient(120deg, #dbeafe, #eef2ff 55%, #f5eaff);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 600px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: white;
-            color: #2563eb;
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .hero-section h1 {
-            font-size: clamp(28px, 4vw, 43px);
-            font-weight: 800;
-            line-height: 1.2;
-            color: #172554;
-            margin-bottom: 13px;
-        }
-
-        .hero-section p {
-            color: #64748b;
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 22px;
-        }
-
-        .shop-btn {
-            display: inline-block;
-            text-decoration: none;
-            background: #2563eb;
-            color: white;
-            padding: 12px 23px;
-            border-radius: 9px;
-            font-weight: 700;
-            transition: 0.3s;
-        }
-
-        .shop-btn:hover {
-            background: #1d4ed8;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .hero-art {
-            font-size: 115px;
-            color: #2563eb;
-            padding: 10px 30px;
-            filter: drop-shadow(0 12px 12px rgba(37, 99, 235, 0.16));
-        }
-
-        /* FEATURES */
-
-        .features {
-            display: flex;
-            gap: 16px;
-            margin: 25px 0 35px;
-        }
-
-        .feature-item {
-            flex: 1;
-            background: white;
-            padding: 17px;
-            border-radius: 13px;
-            display: flex;
-            align-items: center;
-            gap: 13px;
-            box-shadow: 0 3px 15px rgba(30, 50, 90, 0.035);
-        }
-
-        .feature-icon {
-            width: 43px;
-            height: 43px;
-            min-width: 43px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 21px;
-        }
-
-        .feature-item h6 {
-            font-size: 13px;
-            font-weight: 700;
-            margin: 0 0 5px;
-        }
-
-        .feature-item small {
-            font-size: 11px;
-            color: #94a3b8;
-        }
-
-        /* PRODUCT HEADING */
-
-        .products-section {
-            padding-bottom: 45px;
-        }
-
-        .section-heading {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            margin-bottom: 22px;
-        }
-
-        .section-heading h3 {
-            font-weight: 800;
-            font-size: 25px;
-            margin: 0 0 7px;
-        }
-
-        .section-heading p {
-            color: #94a3b8;
-            font-size: 13px;
-            margin: 0;
-        }
-
-        .heading-icon {
-            color: #2563eb;
-            margin-right: 8px;
-        }
-
-        .view-label {
-            background: #e8efff;
-            color: #2563eb;
-            padding: 9px 15px;
-            border-radius: 25px;
-            font-size: 12px;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        /* PRODUCT CARDS - WORKS WITH JS */
-
-        #productList > div {
-            margin-bottom: 24px;
-        }
-
-        #productList .card {
-            height: 100%;
-            border: 1px solid #edf0f7;
-            border-radius: 16px;
-            overflow: hidden;
-            background: white;
-            box-shadow: 0 4px 16px rgba(30, 50, 90, 0.045);
-            transition: transform 0.25s, box-shadow 0.25s;
-        }
-
-        #productList .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 13px 30px rgba(30, 50, 90, 0.12);
-        }
-
-        #productList .card img {
-            width: 100%;
-            height: 210px;
-            object-fit: contain;
-            padding: 18px;
-            background: #f8faff;
-        }
-
-        #productList .card-body {
-            padding: 18px;
-        }
-
-        #productList .card-title {
-            color: #172554;
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        #productList .card-text {
-            color: #64748b;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        #productList .btn {
-            border-radius: 8px;
-            font-weight: 600;
-        }
-
-        /* FOOTER */
-
-        .footer {
-            background: #172554;
-            color: white;
-            padding: 23px 0;
-        }
-
-        .footer p {
-            margin: 0;
-            font-size: 13px;
-            color: #cbd5e1;
-        }
-
-        .footer-brand {
-            font-size: 18px;
-            font-weight: 800;
-        }
-
-        /* RESPONSIVE */
-
-        @media (max-width: 767px) {
-            .hero-section {
-                padding: 28px 22px;
-            }
-
-            .hero-art {
-                display: none;
-            }
-
-            .features {
-                flex-wrap: wrap;
-            }
-
-            .feature-item {
-                min-width: 45%;
-            }
-
-            .search-form {
-                padding-top: 12px;
-            }
-
-            .search-box {
-                min-width: 0;
-                width: 100%;
-            }
-
-            .section-heading h3 {
-                font-size: 21px;
-            }
-
-            #productList .card img {
-                height: 165px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .feature-item {
-                min-width: 100%;
-            }
-
-            .hero-section {
-                padding: 24px 18px;
-            }
+            margin-top: 25px;
         }
     </style>
-</head>
 
-<body>
-
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg custom-navbar">
-        <div class="container">
-
-            <a class="navbar-brand" href="index.html">
-                <i class="bi bi-bag-check-fill"></i>Shop<span class="text-dark">Zone</span>
-            </a>
-
-            <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand" href="#">Shope C@rt</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                <ul class="navbar-nav me-auto ms-lg-4 mb-2 mb-lg-0">
-
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                            href="index.html">
-                            <i class="bi bi-house-door me-1"></i>Home
-                        </a>
+                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
                     </li>
-
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./allproduct.html">All Product</a>
+                    </li>
                     <li class="nav-item dropdown">
-
-                        <a class="nav-link dropdown-toggle" href="#"
-                            role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Products
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="add.html">
-                                    <i class="bi bi-plus-circle me-2"></i>Add Product
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item" href="view.html">
-                                    <i class="bi bi-box-seam me-2"></i>View Product
-                                </a>
-                            </li>
-                        </ul>
-
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./addproduct.html">AddProduct</a></li>
+                        <li><a class="dropdown-item" href="./viewlist.html">Viewlist</a></li>
+                    </ul>
                     </li>
+                    
                 </ul>
-
-                <form class="d-flex search-form" role="search">
-                    <input class="form-control search-box me-2"
-                        type="search" placeholder="Search products..."
-                        aria-label="Search">
-
-                    <button class="btn search-btn" type="submit">
-                        <i class="bi bi-search me-1"></i>Search
-                    </button>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                    <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-
-            </div>
-        </div>
-    </nav>
-
-    <!-- MAIN CONTENT -->
-    <main class="container">
-
-        <!-- HERO -->
-        <section class="hero-section">
-
-            <div class="hero-content">
-
-                <span class="hero-badge">
-                    <i class="bi bi-stars me-1"></i> YOUR EVERYDAY SHOPPING
-                </span>
-
-                <h1>
-                    Find Your Favorites.<br>
-                    <span class="text-primary">Love Every Deal.</span>
-                </h1>
-
-                <p>
-                    Discover amazing products, explore your favorites
-                    and make every purchase worth it.
-                </p>
-
-                <a href="#products" class="shop-btn">
-                    Explore Products <i class="bi bi-arrow-right ms-2"></i>
-                </a>
-
-            </div>
-
-            <div class="hero-art">
-                <i class="bi bi-bag-heart-fill"></i>
-            </div>
-
-        </section>
-
-        <!-- FEATURES -->
-        <section class="features">
-
-            <div class="feature-item">
-                <div class="feature-icon"
-                    style="background:#e8f0ff;color:#2563eb;">
-                    <i class="bi bi-truck"></i>
-                </div>
-                <div>
-                    <h6>Easy Shopping</h6>
-                    <small>Shop from anywhere</small>
                 </div>
             </div>
-
-            <div class="feature-item">
-                <div class="feature-icon"
-                    style="background:#e2f9ed;color:#16a34a;">
-                    <i class="bi bi-shield-check"></i>
+        </nav>
+            <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
-                <div>
-                    <h6>Trusted Products</h6>
-                    <small>Quality you can trust</small>
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <img src="./img/a1.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                        <img src="./img/a3.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                        <img src="./img/a4.webp" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
+            
+            <div class="container my-4">
+                <h3 class="text-center mb-3">Shop By Category</h3>
 
-            <div class="feature-item">
-                <div class="feature-icon"
-                    style="background:#fff0e4;color:#ea580c;">
-                    <i class="bi bi-tags"></i>
-                </div>
-                <div>
-                    <h6>Great Deals</h6>
-                    <small>Find your best picks</small>
+                <div class="row text-center g-3">
+                    <div class="col-6 col-md-3">
+                        <div class="card p-3">
+                            <h5>Mobiles</h5>
+                            <p class="mb-0">Latest Smartphones</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                        <div class="card p-3">
+                            <h5>Electronics</h5>
+                            <p class="mb-0">Best Gadgets</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                        <div class="card p-3">
+                            <h5>Fashion</h5>
+                            <p class="mb-0">Trendy Clothes</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                        <div class="card p-3">
+                            <h5>Footwear</h5>
+                            <p class="mb-0">Shoes & Sandals</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-        </section>
+            <div class="container my-4">
+                <h3 class="text-center mb-3">Featured Products</h3>
 
-        <!-- PRODUCTS -->
-        <section class="products-section" id="products">
+                <div class="row g-3">
+                    <div class="col-6 col-md-3">
+                        <div class="card h-100">
+                            <img src="https://motocare.co.in/storage/category_type/1703653141_658baf1555e1d.png" class="card-img-top"
+                                height="180" style="object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h5>Bike  accessories</h5>
+                                <p class="text-success">₹999</p>
+                                <a href="./allproduct.html"
+                                class="btn btn-primary btn-sm">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="section-heading">
+                    <div class="col-6 col-md-3">
+                        <div class="card h-100">
+                            <img src="https://lluvia.in/wp-content/uploads/2020/02/new-banner-white.png" class="card-img-top"
+                                height="180" style="object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h5>Pulsar</h5>
+                                <p class="text-success">₹1,49,399</p>
+                                <a href="./allproduct.html"
+                                class="btn btn-primary btn-sm">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
 
-                <div>
-                    <h3>
-                        <i class="bi bi-grid-fill heading-icon"></i>
-                        Explore Products
-                    </h3>
+                    <div class="col-6 col-md-3">
+                        <div class="card h-100">
+                            <img src="https://throttlerz.com/wp-content/uploads/2026/09/bike-accessories-icon.webp" class="card-img-top"
+                                height="180" style="object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h5>Traveling Bag</h5>
+                                <p class="text-success">₹799</p>
+                                <a href="./allproduct.html"
+                                class="btn btn-primary btn-sm">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
 
-                    <p>Discover something special for yourself.</p>
+                    <div class="col-6 col-md-3">
+                        <div class="card h-100">
+                            <img src="https://trackandtrail.in/cdn/shop/files/stark-red.png?v=1778044907" class="card-img-top"
+                                height="180" style="object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h5>Bicycle</h5>
+                                <p class="text-success">₹4,999</p>
+                                <a href="./allproduct.html"
+                                class="btn btn-primary btn-sm">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <span class="view-label">
-                    <i class="bi bi-bag me-1"></i> Our Collection
-                </span>
-
             </div>
 
-            <!-- KEEP THIS ID SAME FOR YOUR JAVASCRIPT -->
-            <div class="row" id="productList">
+                  <footer class="footer">
+                    <div class="container d-flex justify-content-between
+                                flex-wrap gap-2">
+                        <strong>
+                            <i class="bi bi-bag-check-fill"></i> ShopC@rt
+                        </strong>
 
-            </div>
-
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container d-flex flex-wrap justify-content-between
-            align-items-center gap-2">
-
-            <div class="footer-brand">
-                <i class="bi bi-bag-check-fill me-2"></i>ShopZone
-            </div>
-
-            <p>Discover more. Shop smarter. © 2026 ShopZone.</p>
-
-        </div>
-    </footer>
-
-    <!-- Bootstrap JavaScript -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-    </script>
-
-    <!-- YOUR EXISTING JAVASCRIPT -->
-    <script src="./js/script.js"></script>
-
-</body>
+                        <span>© 2026 ShopC@rt. All rights reserved.</span>
+                    </div>
+                  </footer>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"
+        ></script>
+        
+    </body>
 </html>
